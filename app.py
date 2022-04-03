@@ -3,7 +3,7 @@ from flask_cors import CORS
 from melanoma_detection_pps import detect_melanoma_by_pps, Data
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/predict": {"origins": "*"}})
+cors = CORS(app, resources={r"/predict-melanoma/*": {"origins": "*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
