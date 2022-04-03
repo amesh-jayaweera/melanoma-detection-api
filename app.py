@@ -11,7 +11,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 def melanoma_detection_by_pps():
     try:
         data = request.get_json(force=True)
-        pps = Data(data['age'], data['gene'], data['tumor'], data['tier'], data['mutated dna'])
+        pps = Data(data['age'], data['gene'], data['tumor'], data['tier'], data['mutated_dna'])
         output = detect_melanoma_by_pps(pps)
         response = jsonify(output)
         response.headers.add('Access-Control-Allow-Origin', '*')
