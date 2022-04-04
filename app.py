@@ -27,6 +27,7 @@ def melanoma_detection_by_dermoscopic_images():
     try:
         img = request.files['image']
         extension = img.filename.split(".")[1]
+        required_file_extensions = ['png', 'jpg', 'jpeg']
         if extension in required_file_extensions:
             output = checkMelanoma(img)
             response = jsonify(output)
