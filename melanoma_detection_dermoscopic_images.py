@@ -1239,10 +1239,6 @@ def checkMelanoma(file):
             arr[0].append(blueValue)
             arr[0].append(atypicalValue)
             arr[0].append(streaksValue)
-            arr[0].append(asymmetryRealValue)
-            arr[0].append(borderNewValue)
-            arr[0].append(colourRealValue)
-            arr[0].append(diameterRealValue)
         else:
             state = 1
             try:
@@ -1356,16 +1352,12 @@ def checkMelanoma(file):
             arr[0].append(blueValue)
             arr[0].append(atypicalValue)
             arr[0].append(streaksValue)
-            arr[0].append(asymmetryRealValue)
-            arr[0].append(borderNewValue)
-            arr[0].append(colourRealValue)
-            arr[0].append(diameterRealValue)
 
     except Exception as e:
         print("error")
         print("Main Loop", e)
 
-    filename = 'model/finalized_model.sav'
+    filename = 'model/finalized_model.pkl'
     loaded_model = pickle.load(open(filename, 'rb'))
     y_pred = loaded_model.predict(arr)
     y_pred_proba = loaded_model.predict_proba(arr)[::, 1]
@@ -1375,4 +1367,8 @@ def checkMelanoma(file):
         status = 'Positive'
     else:
         status = 'Negative'
-    return (status, level, arr)
+
+    if (status == 'Negative'):
+        level = 100 - level
+
+    return (status, level, arr[0])

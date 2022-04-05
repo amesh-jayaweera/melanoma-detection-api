@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from melanoma_detection_pps import detect_melanoma_by_pps, Data
 from melanoma_detection_dermoscopic_images import checkMelanoma
+import numpy as np
+import cv2
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/predict-melanoma/*": {"origins": "*"}})
@@ -25,8 +27,10 @@ def melanoma_detection_by_pps():
 @app.route('/predict-melanoma/dermoscopic-images', methods=['POST'])
 def melanoma_detection_by_dermoscopic_images():
     try:
-        img = request.files['image']
-        extension = img.filename.split(".")[1]
+        filestr = request.files['image'].read()
+        npimg = np.fromstring(filestr, np.uint8)
+        img = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
+        extension = request.files['image'].filename.split(".")[1]
         required_file_extensions = ['png', 'jpg', 'jpeg']
         if extension in required_file_extensions:
             output = checkMelanoma(img)
