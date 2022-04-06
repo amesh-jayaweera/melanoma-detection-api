@@ -4,4 +4,4 @@ pandas
 gunicorn
 scikit-learn==1.0
 flask_cors
-opencv-python
+opencv-python-headless==4.5.5.64
