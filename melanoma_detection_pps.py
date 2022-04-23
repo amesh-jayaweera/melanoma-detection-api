@@ -171,7 +171,7 @@ def detect_melanoma_by_pps(pps_data):
     _input = [np.array(pps_data.list())]
     probability = model.predict_proba(_input)
     res = {"gene": pps_data.gene_name, "tumor": pps_data.tumour_origin, "tier": pps_data.tier,
-           "age": pps_data.age, "pps": pps_data.pps, "probability": probability[0][1]}
+           "age": pps_data.age, "pps": pps_data.pps, "probability": [probability[0][0], probability[0][1]]}
     return res
 
 
