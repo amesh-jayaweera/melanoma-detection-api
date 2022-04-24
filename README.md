@@ -1,4 +1,4 @@
-## Melanoma Detection Tool : REST API
+## Melanoma Detection Tool : REST APIs
 
 #### Technologies & Libraries Used
     Python 3.9
@@ -8,6 +8,7 @@
     pandas
     gunicorn
     flask_cors
+    opencv-python-headless==4.5.5.64
     
 ### How to set up and run
 ##### Create virtual environment 
