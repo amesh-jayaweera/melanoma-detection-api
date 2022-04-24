@@ -73,7 +73,48 @@
        
    Response Status <br/>
    200: Request Processed Successfully. <br/>
-   400: Bad Request
+   400: Bad Request <br/>
    500: Internal Server Error
    
+
+#### Melanoma detection using Dermoscopic Image
+   Method: POST <br/>
+   End point: https://melanoma-detection-tool-api.herokuapp.com/predict-melanoma/dermoscopic-images <br/>
+   Request body format: Form-data <br/>
+   Required params in request body: image (Needs to be passed as a file)<br/><br/>
+   Example request body <br/>
    
+       { 
+        	"image" : ISIC_0024554.jpg
+   	   }
+       
+   Example response body<br/>
+       
+       Status Code: OK (200)
+       
+       [
+            "Positive",
+            90.53,
+            [ 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0 ]
+       ]
+       
+   
+   #### array values description 
+        array location 0 - Presence of Dermoscopi Feature Asymmetry
+        array location 1 - Presence of Dermoscopi Feature Border Irregularity
+        array location 2 - Presence of Dermoscopi Feature Colour Variation
+        array location 3 - Presence of Dermoscopi Feature Diameter
+        array location 4 - Presence of Dermoscopi Feature Globules
+        array location 5 - Presence of Dermoscopi Feature Blotches
+        array location 6 - Presence of Dermoscopi Feature Milky-red Areas
+        array location 7 - Presence of Dermoscopi Feature Rosettes
+        array location 8 - Presence of Dermoscopi Feature Regression Structure
+        array location 9 - Presence of Dermoscopi Feature Blue-white Veil
+        array location 10 - Presence of Dermoscopi Feature Atypical Network
+        array location 11 - Presence of Dermoscopi Feature Irregular Streaks
+        
+   Response Status <br/>
+   200: Request Processed Successfully. <br/>
+   400: Bad Request <br/>
+   500: Internal Server Error
+ 
