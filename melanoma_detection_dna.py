@@ -62,6 +62,7 @@ def defragment_patient_dna(gene,patient_dna):
     probability_array = setup_defragmentation_algo(gene,patient_dna)
     new_ratio = ratio
     defragmented_patient_dna = patient_dna
+    normalized_levenshtein = NormalizedLevenshtein()
 
     while new_ratio<threshold:
         min_probability = min(probability_array[2])
