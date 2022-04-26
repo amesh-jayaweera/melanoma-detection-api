@@ -18,16 +18,17 @@ def melanoma_detection_by_pps():
         input_data = Data(data['age'], data['gene'], data['tumor'], data['tier'], data['mutated_dna'])
 
         # passing data to module 2
-        mutations, mutation_positions = detect_mutations(data['age'],data['mutated_dna'],data['gene'])
-        if(len(mutations)!=0):
+        mutations, mutation_positions = detect_mutations(data['age'], data['mutated_dna'], data['gene'])
+        if len(mutations) != 0:
             # passing data to module 3
             output = detect_melanoma_by_pps(input_data)
-            output.update({'mutations': mutations ,'mutation_positions':mutation_positions})
+            output.update({'mutations': mutations, 'mutation_positions': mutation_positions})
+            output.update({"status": "FOUND"})
             response = jsonify(output)
             response.headers.add('Access-Control-Allow-Origin', '*')
             return response, 200  # request completed successfully
         else:
-            return None, 200  # request completed successfully, no mutations found
+            return jsonify({"status": "NOT_FOUND"}), 200  # request completed successfully, no mutations found
     except Exception as e:
         print(e)
         return {"message": "Something went wrong!"}, 400  # bad request
