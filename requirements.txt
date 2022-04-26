@@ -5,3 +5,6 @@ gunicorn
 scikit-learn==1.0
 flask_cors
 opencv-python-headless==4.5.5.64
+python-Levenshtein
+strsimpy==0.2.1
+Levenshtein
