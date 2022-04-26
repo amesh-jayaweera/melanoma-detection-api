@@ -9,6 +9,8 @@
     gunicorn
     flask_cors
     opencv-python-headless==4.5.5.64
+    FuzzyWuzzy
+    strsimpy==0.2.1
     
 ### How to set up and run
 ##### Create virtual environment 
