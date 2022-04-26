@@ -27,7 +27,7 @@ def melanoma_detection_by_pps():
             response.headers.add('Access-Control-Allow-Origin', '*')
             return response, 200  # request completed successfully
         else:
-            return null, 200  # request completed successfully, no mutations found
+            return None, 200  # request completed successfully, no mutations found
     except Exception as e:
         print(e)
         return {"message": "Something went wrong!"}, 400  # bad request
