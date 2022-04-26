@@ -5,3 +5,7 @@ gunicorn
 scikit-learn==1.0
 flask_cors
 opencv-python-headless==4.5.5.64
+fuzzywuzzy
+math
+itertools
+strsimpy.normalized_levenshtein
